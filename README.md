@@ -116,3 +116,10 @@ Column | Type | Not&nbsp;Null | Description
 `statement_start_at` | `TIMESTAMP` | &#x2611; | Statement start timestamp for tx in which audited event occurred
 `wall_clock_time` | `TIMESTAMP` | &#x2611; | Wall clock time at which audited event's trigger call occurred
 
+
+## Credits
+
+* [hasura/audit-trigger](https://github.com/hasura/audit-trigger)
+* [iloveitaly/audit-trigger](https://github.com/iloveitaly/audit-trigger)
+* [2ndQuadrant/audit-trigger](https://github.com/2ndQuadrant/audit-trigger)
+* [Wiki Audit Trigger 91plus](https://wiki.postgresql.org/wiki/Audit_trigger_91plus)
