@@ -231,7 +231,7 @@ DECLARE
     _ignored_cols_snip text = ''; -- Variable to hold the list of ignored columns in string format
 
 BEGIN
-    -- Call the 'disable' function to remove auditing from the target table if it's already enabled
+    -- Call the ' audit.disable' function to remove auditing from the target table if it's already enabled
 
     -- Check if row-level changes should be audited
     IF audit_rows THEN
@@ -302,8 +302,8 @@ $body$ LANGUAGE 'sql';
 COMMENT ON FUNCTION audit.enable(regclass) IS $body$
 Add auditing support to the given table. Row-level changes will be logged with full client query text. No cols are ignored.$body$;
 
--- Create or replace a function named 'disable' in the 'audit' schema. This function can be used to disable auditing for a specific table.
-CREATE OR REPLACE FUNCTION disable(target_table regclass) RETURNS void AS $body$
+-- Create or replace a function named ' audit.disable' in the 'audit' schema. This function can be used to  audit.disable auditing for a specific table.
+CREATE OR REPLACE FUNCTION  audit.disable(target_table regclass) RETURNS void AS $body$
 BEGIN
     -- Drop the row-level trigger if it exists on the target table
     EXECUTE 'DROP TRIGGER IF EXISTS audit_trigger_row ON ' || target_table;
@@ -313,8 +313,8 @@ BEGIN
 END;
 $body$ language 'plpgsql';
 
--- Add a comment to the 'disable' function
-COMMENT ON FUNCTION disable(regclass) IS $body$ Remove auditing support to the given table.$body$;
+-- Add a comment to the ' audit.disable' function
+COMMENT ON FUNCTION  audit.disable(regclass) IS $body$ Remove auditing support to the given table.$body$;
 
 -- Create or replace a view named 'tables' in the 'audit' schema. This view lists all tables with auditing enabled.
 CREATE OR REPLACE VIEW audit.tables AS
